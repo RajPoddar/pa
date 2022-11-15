@@ -1,0 +1,455 @@
+Practical -1
+Write a python program to input two number and perform addition, subtraction, multiplication
+and division based on choice.
+ch = -1;
+while(ch!=5):
+ print("1. Addition","2. Subtraction","3. Multiplication","4.Division","5. Exit",sep="\n")
+ ch = eval(input("Enter your choice"))
+ if(ch>=1 and ch<=4):
+ n1 = int(input("Enter first number"))
+ n2 = int(input("Enter first number"))
+ if ch==1:
+ ans = n1 + n2
+ print("The addition of {} and {} is {}".format(n1,n2,ans))
+ elif ch==2:
+ ans = n2 - n1
+ print("The Subtraction of {} and {} is {}".format(n1,n2,ans))
+ elif ch==3:
+ ans = n1 * n2
+ print("The Multiplication of {} and {} is {}".format(n1, n2, ans))
+ elif ch==4:
+ ans = n2 / n1
+ print("The Division of {} and {} is {}".format(n1, n2, ans))
+ elif ch==5:
+ exit()
+ else:
+ print("wrong choice")
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 3
+Practical -2
+Write a python program to input number and perform Odd/Even, Reverse, Prime based on 
+choice.
+ch = -1
+while(ch!=4):
+ print("1. Odd/Even ","2. Reverse","3. Prime","4. Exit",sep="\n")
+ ch = eval(input("Enter your choice : "))
+ if(ch>=1 and ch<=3):
+ n = int(input("Enter a number: "))
+ if ch==1:
+ if n%2==0:
+ print("Number is even")
+ else:
+ print("Number is odd")
+ elif ch==2:
+ ans = 0
+ while(n>0):
+ rem = n%10
+ ans = ans* 10 + rem
+ n = n//10
+ print("Reversed number is ",ans)
+ elif ch==3:
+ i = 2
+ while(i<n):
+ if n%i==0:
+ print("Number is not prime")
+ break
+ i = i+1
+ if i>=n:
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 4
+ print("Number is prime")
+ elif ch==4:
+ exit();
+ else:
+ print("Wrong choice")
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 5
+Practical -3
+Write a python program to calculate number of vowels in string.
+s = "Kbs CollegeVapi"
+arr = "aeiouAEIOU"
+cnt = 0;
+for i in range(0,len(s)):
+ # print(cnt)
+ for val in arr:
+ if s[i]==val:
+ cnt = cnt + 1
+if cnt>0:
+ print("Total number of vowels in string is : ",cnt)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 6
+Practical -4
+Write a Python Program to create module that contain function to calculate factorial, range 
+multiplication, summation and range summation.
+def factorial(n):
+ while(n>0):
+ if n==1:
+ return 1
+ else:
+ return n * factorial(n-1)
+def sum(*varargs):
+ sum = 0
+ for ele in varargs:
+ sum = sum + ele
+ return sum
+def rangesum(a,b):
+ while(b>=a):
+ if b==a:
+ return a;
+ else:
+ return b + rangesum(a,b-1)
+def rangemul(a,b):
+ while(b>=a):
+ if b==a:
+ return a
+ else:
+ return b * rangemul(a,b-1)
+# print("factorial of 4 is ", factorial(4))
+# print("sum of (1,2,3,4,5,6,7,8,9,10) is ",sum(1,2,3,4,5,6,7,8,9,10))
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 7
+# print("sum of rangesum(1,10) is ",rangesum(1,10))
+# print("multiplication of rangemul(1,5) is ", rangemul(1,5))
+import module as lib
+n = int(input("Enter a number : "))
+print("The factorial of ",n," is ",lib.factorial(n))
+print("sum of (1,2,3,4,5,6,7,8,9,10) is ",lib.sum(1,2,3,4,5,6,7,8,9,10))
+print("sum of rangesum(1,10) is ",lib.rangesum(1,10))
+print("multiplication of rangemul(1,5) is ", lib.rangemul(1,5))
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 8
+Practical -5
+Write a Python Program to Perform different operation on List
+ch = -1
+while(ch != 9):
+ print("1.Insert Element", "2.Insert element at specific position"
+ , "3.Remove element", "4.Extend list", "5.Display",
+ "6.Delete multiple elements", "7.Display reversed list", "8.Sort the list", "9.exit", 
+sep="\n")
+ ch = int(input("Enter your choice: "))
+ x=[]
+ if ch==1:
+ ele = int(input("Enter element to insert"))
+ x.append(ele)
+ if ch==2:
+ pos = int(input("Enter position"))
+ ele = int(input("Enter element to insert"))
+ x.append(pos, ele)
+ if ch==3:
+ ele = int(input("Enter element to remove"))
+ x.remove(ele)
+ if ch==4:
+ print()
+ if ch==5:
+ print(x)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 9
+Practical -6
+Write a Python Program to implement different ways to traverse List.
+x=[10,20,30,40,50]
+#method 1
+for ele in x:
+ print('ele = ',ele)
+#method 2
+for i in range(0,len(x)):
+ print('x[', i ,'] = ',x[i])
+#method 3
+i=0
+while(i<len(x)):
+ print('x[', i, '] = ', x[i])
+ i=i+1
+#method 4
+[print(ele) for ele in x]
+#method 5
+for i,val in enumerate(x):
+ print( ' value = ',val ,' index = ',i)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 10
+Practical -7
+Write a Python Program to implement different ways to traverse dictionary
+x={1:'A',2:'B',3:'C'}
+for ele in x:
+ print("ele = ", ele)
+for key in x.keys():
+ print('x[',key,']= ',x[key])
+for val in x.values():
+ print(' val = ',val)
+for key,val in x.items():
+ print("key = ",key , " and value = ",val)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 11
+Practical -8
+Write a Python Program to Create and use lambda function.
+x=lambda y:y*2
+print("x(5) = ",x(5))
+print("x('-') = ",x('-'))
+y = lambda x,y:x+y
+print(y(10,20))
+def myfun(x):
+ y = lambda a:a*x
+ return y(10)
+print(myfun(5))
+obj = [1,2,3,4,5,6,22,34,45,67,78,90,9]
+flst = list(filter(lambda x:x%2==0,obj))
+print(" obj = ",obj)
+print("flst = ",flst)
+a1 = [10,20,30]
+b1 = [30,40,50]
+ans = list(map(lambda x,y:x*y,a1,b1))
+print("ans = ",ans)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 12
+Practical -9
+Write a Python Program to Write and Read Students.CSV File.
+import csv
+import os
+try:
+ flag= False
+ if (os.path.exists("Student.csv")):
+ flag=True
+ fobj = open("Student.csv", "a", newline="\n")
+ columnheader = ['Rno','Name','S1','S2','S3']
+ #data = [[1,'Pritesh',45,50,60],[2,'Hiya',67,89,90]]
+ writer = csv.writer(fobj)
+ if(flag==False):
+ writer.writerow(columnheader)
+ #writer.writerows(data)
+ rno=int(input("Enter Rollno:-"))
+ Name=input("Enter Your Name:-")
+ s1=eval(input("Enter Marks of Subject1:-"))
+ s2 = eval(input("Enter Marks of Subject1:-"))
+ s3 = eval(input("Enter Marks of Subject1:-"))
+ data = [rno,Name,s1,s2,s3]
+ writer.writerow(data)
+except Exception as e:
+ print("Problem in Write Operation ", e)
+finally:
+ if(fobj!=None):
+ fobj.close()
+#Code To Read File
+import csv
+try:
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 13
+ fobj = open("Student.csv", "r")
+ reader = csv.reader(fobj)
+ column= next(reader)
+ print(column)
+ for row in reader:
+ print(row)
+except Exception as e:
+ print("Problem in Read Operation ", e)
+finally:
+ if(fobj!=None):
+ fobj.close()
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 14
+Practical -10
+Write a Python Program to write & read CSV file using dictionary Object. 
+import csv
+import os
+try:
+ flag= False
+ if (os.path.exists("Student1.csv")):
+ flag=True
+ fobj = open("Student1.csv", "a", newline="\n")
+ columnheader = ['Rno','Name']
+ writer = csv.DictWriter(fobj,fieldnames=columnheader)
+ if(flag==False):
+ writer.writeheader()
+ #Write single record in csv File
+ rno=int(input("Enter Rollno:-"))
+ Name=input("Enter Your Name:-")
+ data = {'Rno':rno,'Name':Name}
+ writer.writerow(data)
+ #Write Multiple record in csv File
+ #data = [{'Rno':20,'Name':'Pritesh'},{'Rno':30,'Name':'Hiya'}]
+ #writer.writerows(data)
+except Exception as e:
+ print("Problem in Write Operation ", e)
+finally:
+ if(fobj!=None):
+ fobj.close()
+#code to read File
+import csv
+try:
+ fobj = open("Student.csv", "r")
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 15
+ #reader = csv.DictReader(fobj,fieldnames=['Rno','Name','S1','S2','S3'])
+ reader = csv.DictReader(fobj)
+ for row in reader:
+ print(row)
+except Exception as e:
+ print("Problem in Read Operation ", e)
+finally:
+ if(fobj!=None):
+ fobj.close()
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 16
+Practical -11
+Write a Python Program to Perform different operation on Dataframe.
+import pandas
+lst = ['Pritesh','Nimesh','Miral']
+df = pandas.DataFrame(data=lst,index=[10,20,30],columns=['Name'])
+print(" type of df =",type(df))
+print(df)
+lstcode=['e1','e2','e3']
+df2 = pandas.DataFrame(data=list(zip(lstcode,lst)),index=[1,2,3],columns=['E-Code','EName'])
+print("df2 = ",df2,sep="\n")
+print(df2.dtypes)
+#using multi-dimensional list
+student = [[1,'Pritesh',45,67,78],[2,'Hiya',65,78,89],[3,'Prititka',45,56,67]]
+dfstudent = pandas.DataFrame(student,columns=['Rno','Name','S1','S2','S3'])
+print(dfstudent)
+print(dfstudent.dtypes)
+#using dictionary Object
+d = [{'Rno':1,'Name':'Pritesh'},{'Rno':2,'Name':'Nimesh'},{'Rno':3,'Name':'Hiya'}]
+obj = pandas.DataFrame(d)
+print(obj)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 17
+Practical -12
+Write a Python Program to create multiple graph.
+mport matplotlib.pyplot as py
+import numpy as np
+#x = np.array([10,20])
+x = np.arange(0,10)
+y = x^2
+z = x*2
+#y = np.array([15,25])
+py.subplot(2,1,2)
+py.plot(x,y,marker='o',linestyle='dotted')
+py.title("My First Graph")
+py.xlabel("x-Axies")
+py.ylabel("y-Axies")
+py.subplot(2,1,1)
+py.plot(x,z,marker='*')
+py.title("My Second Graph")
+py.xlabel("x-Axies")
+py.ylabel("z-Axies")
+py.grid()
+py.show()
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 18
+Practical -13
+Write a Python Program to create bar chart using csv file.
+import csv
+import matplotlib.pyplot as plt
+import numpy as np
+try:
+ fobj = open("Studentchart.csv", "r")
+ reader = csv.DictReader(fobj)
+ columns=[]
+ s1=[]
+ s2=[]
+ s3=[]
+ #total = []
+ for row in reader:
+ columns.append(row['Name'])
+ #marks = int(row['S1'] )+ int(row['S2']) +int(row['S3'])
+ #total.append(marks)
+ s1.append(int(row['S1']))
+ s2.append(int(row['S2']))
+ s3.append(int(row['S3']))
+ print(row)
+ print("columns = ",columns)
+ #print("total = ",total)
+ x=np.arange(len(columns))
+ #y=np.array(total)S
+ s1=np.array(s1)
+ s2 = np.array(s2)
+ s3 = np.array(s3)
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 19
+ plt.bar(x-0.2,s1,width=0.2,color='red')
+ plt.bar(x, s2,width=0.2,color='Black')
+ plt.bar(x+0.2, s3,width=0.2, color='yellow')
+ plt.xticks(x,columns)
+ plt.show()
+except Exception as ex:
+ print("Problem :- ",ex)
+finally:
+ if(fobj!=None):
+ fobj.close();
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 20
+Practical -14
+Write a Python Program to read file and count total number of palindrome word from 
+that file.
+try:
+ cnt=0
+ fobj = open("tydata.txt","r")
+ #data = fobj.readlines()
+ #even = data[::2]
+ odd=data[1::2]
+ print("even = ",even)
+ print("odd = ",odd)
+ for line in data:
+ print(" line = ",line )
+ words = line.split(' ')
+ print(" words = ",words )
+ for word in words:
+ if(word.endswith('\n')):
+ word=word[:len(word)-1]
+ print(" word = ",word , "reverse = ",word[::-1])
+ if(word==word[::-1]):
+ print(word, ' is pallindrome')
+ cnt=cnt+1
+ else:
+ print(word, ' is not pallindrome')
+ print("cnt = ",cnt)
+except Exception as e:
+ print("Problem in Read Data")
+finally:
+ if(fobj!=None):
+KESHAVJI BHARMAL SUMARIA COMMERCE & NATARAJ PROFESSIONAL SCIENCES 
+COLLEGE RAJ PODDAR
+pg. 21
+ fobj.close()
+Practical -15
+Write a Python Program to read file and count total number of alphabets, digits, special 
+symbol& whitespace from that file.
+try:
+ cnti=0
+ cntaplha=0
+ cnts=0
+ cnt=0
+ fobj = open("tydata.txt","r")
+ data = fobj.read()
+ for ele in data:
+ if ele.isdigit():
+ cnti=cnti+1
+ elif ele.isalpha():
+ cntaplha=cntaplha+1
+ elif ele.isspace():
+ cnts=cnts+1
+ else:
+cnt=cnt+1
+ print("Alphabates = ",cntaplha)
+ print("Digits = ", cnti)
+ print("Space = ", cnts)
+ print("special Symbol = ", cnt)
+except Exception as e:
+ print("Problem in Read Data")
+finally:
+ if(fobj!=None):
+ fobj.close()
