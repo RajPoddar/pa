@@ -1,0 +1,138 @@
+Write a python code for connecting to database using 
+SQLite server.
+
+import sqlite3
+def dbconnect():
+try:
+con = sqlite3.connect("D:\zafar\dbsqlite\dbtemp.db")
+if (con != None):
+return con
+else:
+print("Not Connected");
+except sqlite3.Error as e:
+print("Problem In Connectin",e)
+def insertdata(con_name,con_number,con_email):
+try:
+con = dbconnect()
+cur = con.cursor()
+sql = "insert into contacts(con_name,con_number,con_email) 
+values(?,?,?)"
+if(cur.execute(sql,(con_name,con_number,con_email))):
+print("Record Inserted Sucessfully");
+con.commit()
+except sqlite3.Error as e:
+print("Problem In Insert",e)
+
+finally:
+if(con!=None):
+con.close()
+def updatedata(con_name,con_number,con_email,con_id):
+try:
+con = dbconnect()
+cur = con.cursor()
+sql = "update contacts set 
+con_name=:con_name,con_number=:con_number,con_email=:con_email where 
+con_id=:con_id"
+param = 
+{"con_name":con_name,"con_number":con_number,"con_email":con_email,"con_id":co
+n_id}
+if(cur.execute(sql,param)):
+print("Record Updated Successfully")
+con.commit()
+except sqlite3.Error as e:
+print("Problem In Update Data",e)
+finally:
+if (con != None):
+con.close()
+def display(con_id):
+try:
+con = dbconnect()
+cur = con.cursor()
+sql = "select * from contacts where con_id =:con_id"
+cur.execute(sql,{"con_id":con_id})
+row = cur.fetchone()
+if(row!=None):
+print("row=",row)
+return True
+else:
+print("Invalid Con_id")
+except sqlite3.Error as e:
+print("Problem In Display ",e)
+finally:
+if (con != None):
+con.close()
+def displayall():
+try:
+con = dbconnect()
+cur = con.cursor()
+sql = "select * from contacts"
+cur.execute(sql)
+rows = cur.fetchall()
+
+print("con_id".rjust(10),"con_name".rjust(25),"con_number".rjust(12),"
+con_email".rjust(25))
+for row in rows:
+print(str(row[0]).rjust(10),
+str(row[1]).rjust(25),
+str(row[2]).rjust(12),
+str(row[3]).rjust(25),)
+except sqlite3.Error as e:
+print("Problem In Display all",e)
+finally:
+if (con != None):
+con.close()
+def deletedata(con_id):
+try:
+con = dbconnect()
+cur = con.cursor()
+sql = "delete from contacts where con_id=?"
+if(cur.execute(sql,(con_id))):
+print("Record Deleted Successfully")
+con.commit()
+except sqlite3.Error as e:
+print("Error In Delete Data",e)
+finally:
+if(con != None):
+con.close()
+while(True):
+print("Menu")
+print("1.Insert Record")
+print("2.Update Record")
+print("3.Delete Record")
+print("4.Display One Record")
+print("5.Display All")
+print("6.Exit")
+ch = eval(input("Enter Your Choice:- "))
+# INSERT
+if ch == 1:
+con_name = input("Enter Contact Name:- ")
+con_number = input("Enter Contact Number:- ")
+con_email = input("Enter Contact Email:- ")
+insertdata(con_name,con_number,con_email)
+displayall()
+# UPDATE
+elif ch == 2:
+con_id = int(input("Enter con_id:- "))
+
+if(display(con_id)):
+con_name = input("Change Name to :- ")
+con_number = input("Change Number to:- ")
+con_email = input("Change Email to:- ")
+updatedata(con_name,con_number,con_email,con_id)
+# DELETE
+elif ch == 3:
+displayall()
+con_id = input("Enter con_id To Delete:- ")
+if(display(con_id)):
+ch =input("Are You Sure ? (Yes/No) : ")
+# if(ch == 'Y' or ch == "y"):
+deletedata(con_id)
+# DISPLAY
+elif ch == 4:
+con_id = eval(input("Enter con_id :- "))
+display(con_id)
+# DISPLAY ALL
+elif ch == 5:
+displayall()
+else:
+print("Enter Valid Choice")

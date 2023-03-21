@@ -1,0 +1,53 @@
+Create a Python Application that implements tic-tac-toe.
+import tkinter as tk
+
+window = tk.Tk()
+window.title("Tic and Tac")
+window.geometry("350x420+10+10")
+window.minsize(width=350,height=410)
+window.maxsize(width=500,height=500)
+cnt = 1
+# btn = button name
+# r = row of button
+# c = coloumn of button
+def btn_click(btn,r,c):
+global cnt
+if(cnt%2 == 0):
+btn['text'] = "0"
+else:
+btn['text'] = "X"
+cnt= cnt + 1
+# Label and textbox in Player 1
+lbl1 = tk.Label(window,text="Player 1",bg="Green",fg="White",font = "bold")
+lbl1.place(x=20,y=10,width=70,height=20)
+text1=tk.Entry(window,bg="White")
+text1.place(x=110,y=10,width=100,height=25)
+# Label and textbox in Player 2
+lbl2 = tk.Label(window,text="Player 2",bg="Green",fg="White",font = "bold")
+lbl2.place(x=20,y=45,width=70,height=20)
+text2=tk.Entry(window,bg="White")
+text2.place(x=110,y=40,width=100,height=25)
+# UI of TIC AND TAC
+btn_00 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_00,0,0))
+btn_00.place(x=10,y=80,width=100,height=100)
+# USING lambda funtion to call a single function with argument as (button 
+name, row of button,coloumn of button)
+btn_01 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_01,0,1))
+btn_01.place(x=120,y=80,width=100,height=100)
+btn_02 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_02,0,2))
+btn_02.place(x=230,y=80,width=100,height=100)
+btn_10 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_10,1,0))
+btn_10.place(x=10,y=190,width=100,height=100)
+KBS COMMERCE & NATARAJ PROFESSIONAL SCIENCE COLLEGE PYTHON ASSIGNMENT
+ZAFAR KHAN 6
+btn_11 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_11,1,1))
+btn_11.place(x=120,y=190,width=100,height=100)
+btn_12 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_12,2,2))
+btn_12.place(x=230,y=190,width=100,height=100)
+btn_20 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_20,2,0))
+btn_20.place(x=10,y=300,width=100,height=100)
+btn_21 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_21,2,1))
+btn_21.place(x=120,y=300,width=100,height=100)
+btn_22 = tk.Button(window,fg="Red",command = lambda : btn_click(btn_22,2,2))
+btn_22.place(x=230,y=300,width=100,height=100)
+window.mainloop()

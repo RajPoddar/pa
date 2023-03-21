@@ -1,0 +1,53 @@
+ Write a python code for user login with email and 
+password from the server.
+
+import tkinter as tk
+import tkinter.messagebox as msg
+import sqlite3
+def dbconnect():
+try:
+con = sqlite3.connect("D:\zafar\dbsqlite\dbtemp.db")
+if (con != None):
+return con
+else:
+print("Not Connected");
+except sqlite3.Error as e:
+print("Problem In Connectin",e)
+def onclick():
+u_email = i_user.get()
+u_pass = i_pass.get()
+
+try:
+con = dbconnect()
+cur = con.cursor()
+sql = f"SELECT u_id from user WHERE u_email ='{u_email}' AND u_pass 
+='{u_pass}';"
+cur.execute(sql)
+if not cur.fetchone():
+msg.showinfo("Alert","InValid Username and Passsword")
+else:
+msg.showinfo("Alert", "Welcome " + i_user.get())
+except sqlite3.Error as e:
+print("Problem In Sign Up",e)
+finally:
+if (con != None):
+con.close()
+con.close()
+window = tk.Tk()
+window.title("My Login Page")
+window.geometry("500x500")
+window.minsize(width=250,height=250)
+window.maxsize(width=1000,height=1000)
+lbl1 = tk.Label(window,text="Input UserName",bg="Brown",fg="White",font = 
+"bold")
+lbl1.place(x=30,y=40,width=150,height=40)
+i_user=tk.Entry(window,bg="White")
+i_user.place(x=190,y=40,width=150,height=40)
+lbl2 = tk.Label(window,text="Input Password ",bg="brown",fg="White",font = 
+"bold")
+lbl2.place(x=30,y=90,width=150,height=40)
+i_pass=tk.Entry(window,bg="White")
+i_pass.place(x=190,y=90,width=150,height=40)
+submit = tk.Button(window,text="Submit",command = onclick)
+submit.place(x=190,y=150,width=150,height=40)
+window.mainloop()

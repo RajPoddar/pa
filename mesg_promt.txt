@@ -1,0 +1,20 @@
+Create a Python Application that contain entry and Button 
+Widget and on button click prompt message with entry 
+widget text.
+import tkinter as tk
+import tkinter.messagebox as msg
+def onClick():
+msg.showinfo("Alert", "Welcome " + i_user.get())
+window = tk.Tk()
+window.title("My Login Page")
+window.geometry("500x500")
+window.minsize(width=250,height=250)
+window.maxsize(width=1000,height=1000)
+lbl1 = tk.Label(window,text="Input UserName",bg="Brown",fg="White",font = 
+"bold")
+lbl1.place(x=30,y=40,width=150,height=40)
+i_user=tk.Entry(window,bg="White")
+i_user.place(x=190,y=40,width=150,height=40)
+submit = tk.Button(window,text="Submit",command = onClick)
+submit.place(x=190,y=150,width=150,height=40)
+window.mainloop()

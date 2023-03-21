@@ -1,0 +1,37 @@
+Create a Python Application that implements a currency 
+calculator.
+
+import tkinter as tk
+from tkinter import ttk
+import tkinter.messagebox as msg
+window = tk.Tk()
+window.title("My Currency Converter")
+window.geometry("500x500")
+
+window.minsize(width=250,height=250)
+window.maxsize(width=1000,height=1000)
+lable =tk.Label(window,text="Input Amount",bg = "yellow")
+lable.place(x = 200,y = 10, width= 150,height= 30)
+currency = tk.IntVar()
+def onSelected():
+val = float(txt_value.get())
+con = float(val/currency.get())
+msg.showinfo("Currency","Converted : " + str(con))
+txt_value = tk.Entry(window)
+txt_value.place(x = 40,y = 10, width= 150,height= 30)
+rbtn_USD = ttk.Radiobutton(window,text="US Dollar",variable = currency,value = 
+"82.86", command=onSelected)
+rbtn_USD.place(x = 40,y = 50, width= 150,height= 30)
+rbtn_EUR = ttk.Radiobutton(window,text="Euro",variable = currency,value = 
+"88.15", command=onSelected)
+rbtn_EUR.place(x = 40,y = 90, width= 150,height= 30)
+rbtn_JPY = ttk.Radiobutton(window,text="Japannese",variable = currency,value = 
+"1.62", command=onSelected)
+rbtn_JPY.place(x = 40,y = 130, width= 150,height= 30)
+rbtn_CNY = ttk.Radiobutton(window,text="Chinese Yuan",variable = 
+currency,value = "11.88", command=onSelected)
+rbtn_CNY.place(x = 40,y = 170, width= 150,height= 30)
+rbtn_KWD = ttk.Radiobutton(window,text="Kuwaiti Dinar",variable = 
+currency,value = "262.67", command=onSelected)
+rbtn_KWD.place(x = 40,y = 210, width= 150,height= 30)
+window.mainloop()

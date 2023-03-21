@@ -1,0 +1,60 @@
+Create a Python Application that allows arithmetic 
+operation of two number.
+
+import tkinter as tk
+import tkinter.messagebox as msg
+window = tk.Tk()
+window.title("My 
+Calculator")
+window.geometry("500x500")
+window.minsize(width=250,height=250)
+window.maxsize(width=1000,height=1000)
+calculator=tk.Label(window,text="Calculator",font="bold")
+calculator.pack()
+def onADD():
+a = float(num1.get())
+b = float(num2.get())
+con = float(a + b)
+msg.showinfo("Currency", "Converted : " + str(con))
+def onSUB():
+a = float(num1.get())
+b = float(num2.get())
+con = float(a - b)
+msg.showinfo("Currency", "Converted : " + str(con))
+def onMULTIPLY():
+a = float(num1.get())
+b = float(num2.get())
+con = float(a * b)
+msg.showinfo("Currency", "Converted : " + str(con))
+def onDIVIDE():
+a = float(num1.get())
+b = float(num2.get())
+con = float(a / b)
+msg.showinfo("Currency", "Converted : " + str(con))
+# LABEL AND TEXTBOX OF NUMBER 1
+KBS COMMERCE & NATARAJ PROFESSIONAL SCIENCE COLLEGE PYTHON ASSIGNMENT
+ZAFAR KHAN 3
+lbl1 = tk.Label(window,text="Input Number 1",bg="Green",fg="White",font = 
+"bold")
+lbl1.place(x=30,y=40,width=150,height=40)
+num1=tk.Entry(window,bg="White")
+num1.place(x=190,y=40,width=150,height=40)
+# LABEL AND TEXTBOX OF NUMBER 2
+lbl2 = tk.Label(window,text="Input Number 2",bg="Green",fg="White",font = 
+"bold")
+lbl2.place(x=30,y=90,width=150,height=40)
+num2=tk.Entry(window,bg="White")
+num2.place(x=190,y=90,width=150,height=40)
+# ADDITION BUTTON
+add = tk.Button(window,text="Add",command = onADD)
+add.place(x=40,y=140,width=50,height=50)
+# SUBTRACTION BUTTON
+sub = tk.Button(window,text="Sub",command = onSUB)
+sub.place(x=100,y=140,width=50,height=50)
+# MULTIPICATION BUTTON
+multiply = tk.Button(window,text="Multiply",command = onMULTIPLY)
+multiply.place(x=160,y=140,width=50,height=50)
+# DIVIDE BUTTON
+divide = tk.Button(window,text="Divide",command = onDIVIDE)
+divide.place(x=220,y=140,width=50,height=50)
+window.mainloop()
